@@ -14,7 +14,7 @@ for(i=0; fita[i]!='\0' ; i++)
     
 A ideia deste laço de repetição é iterar a cada caractere da string 'palavra' e fazer testes, isto é: A cada iteração, irá verificar se o primeiro caractere da nossa fita, é igual ao caractere atual da palavra. Caso seja igual, irá entrar em um novo laço, este que percorre até o fim da string 'fita'. Enquanto os caracteres forem iguais, o valor de 'aux' irá incrementar, tanto quanto o valor de 'j'. Desta maneira irá sendo feita as comparações da string 'fita' e 'palavra' até que se chegue ao final do tamanho da 'fita'. Neste segundo laço, caso algum dos caracteres testados não for igual, irá sair do laço da 'fita' e continuará iterando pelo laço da'palavra'. 
 Se o laço de 'palavra' chegar ao fim e não ter ao menos uma iteração do laço 'fita', significa que a 'palavra' não contem a subpalavra de 'fita'. Caso o laço de 'fita' seja iterado até seu final, significa que todos os caracteres são iguais, assim incrementei um ao valor da variável 'aceita'. Se o valor dela for igual a zero, então não existe subpalavra, se o valor for um, então existe subpalavra.
-
+```
 for(i=0 ; i < tamanho ; i++)
     {
         if(fita[0]==palavra[i]){
@@ -33,3 +33,4 @@ for(i=0 ; i < tamanho ; i++)
             }
         }
     }
+```
