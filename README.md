@@ -56,7 +56,7 @@ for(i=0; fita[i]!='\0' ; i++)
     }
 ```
 
-O primeiro passo é chegar se os primeiros caracteres da 'fita' e da 'palavra' são iguais. Se não forem iguais, já não teremos um prefixo na palavra e a entrada é rejeitada. Caso forem iguais, agora precisamos apenas comparar os caracteres consecutivos. Para isto, iteramos pela string 'fita', comparando caracter por caracter. Se alguma iteração falhar, consequentemente, os caracteres não são iguais, assim não existe o prefixo. 
+O primeiro passo é checar se os primeiros caracteres da 'fita' e da 'palavra' são iguais. Se não forem iguais, já não teremos um prefixo na palavra e a entrada é rejeitada. Caso forem iguais, agora precisamos apenas comparar os caracteres consecutivos. Para isto, iteramos pela string 'fita', comparando caracter por caracter. Se alguma iteração falhar, consequentemente, os caracteres não são iguais, assim não existe o prefixo. 
 ```c
 if(fita[0]==palavra[0]){
         aux = 0;
@@ -80,3 +80,45 @@ if(aux==tamanho){
         printf("\nEntrada aceita => [%s] - contem o prefixo '%s'", palavra, fita);
     }
 ```
+
+# Sufixo
+Lógica semelhante as funções anteriores. Para o sufixo, será aceita qualquer ordem de caracteres até o final da palavra.
+
+Armazenando os valores do tamanho da palavra e da fita.
+```c
+for(i=0; palavra[i]!='\0' ; i++)
+    {
+       tamanho++;
+    }
+
+    for(i=0; fita[i]!='\0' ; i++)
+    {
+       tamanho2++;
+    }
+```
+Para iniciar a comparação ignorando o inicio e meio da fita, criei uma variável 'inicio' que guarda a posição em que será iniciada as comparações, isto é, se subtrair o tamanho da 'palavra' pelo tamanho da 'fita' resultará na posição do array em que será começado as comparações. Compararemos o primeiro caractere da fita com o primeiro da 'palavra' na posição inicio, explicada anteriormente. Se não forem iguais, não existe sufixo. Se ambos caracteres forem iguais, será feita as comparações caractere por caractere, até o fim da fita. Caso alguma comparação falhe, então o programa encerra, pois a entrada será rejeitada (não existe sufixo). 
+```c
+inicio = (tamanho - tamanho2);
+
+    if(fita[0]==palavra[inicio]){
+        aux = inicio;
+        for(i=0 ; i < tamanho2 ; i++)
+        {
+            if(fita[i]==palavra[aux])
+            {
+                aux++;
+            }else{
+                printf("\nEntrada rejeitada => [%s] - nao contem o sufixo '%s'", palavra, fita);
+                exit(0);
+            }
+        }
+    }else{
+        printf("\nEntrada rejeitada => [%s] - nao contem o sufixo '%s'", palavra, fita);
+    }
+```
+A entrada será aceita caso o laço de repetição seja executado ao menos uma vez. Pois, caso a comparação não for igual, então o programa se encerraria. Se o programa não encerrou, então existe sufixo.
+```c
+if(aux!=0){
+        printf("\nEntrada aceita => [%s] - contem o sufixo '%s'", palavra, fita);
+    }
+ ```
