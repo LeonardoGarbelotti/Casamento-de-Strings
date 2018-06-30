@@ -14,9 +14,7 @@ Armazenar na variavel TAMANHO2, o comprimento da string 'fita':
 for(i=0; fita[i]!='\0' ; i++)
     tamanho2++;
 ```
-
-A ideia deste laço de repetição é iterar a cada caractere da string 'palavra' e fazer testes, isto é: A cada iteração, irá verificar se o primeiro caractere da nossa fita, é igual ao caractere atual da palavra. Caso seja igual, irá entrar em um novo laço, este que percorre até o fim da string 'fita'. Enquanto os caracteres forem iguais, o valor de 'aux' irá incrementar, tanto quanto o valor de 'j'. Desta maneira irá sendo feita as comparações da string 'fita' e 'palavra' até que se chegue ao final do tamanho da 'fita'. Neste segundo laço, caso algum dos caracteres testados não for igual, irá sair do laço da 'fita' e continuará iterando pelo laço da'palavra'. 
-Se o laço de 'palavra' chegar ao fim e não ter ao menos uma iteração do laço 'fita', significa que a 'palavra' não contem a subpalavra de 'fita'. Caso o laço de 'fita' seja iterado até seu final, significa que todos os caracteres são iguais, assim incrementei um ao valor da variável 'aceita'. Se o valor dela for igual a zero, então não existe subpalavra, se o valor for um, então existe subpalavra.
+A principal idéia deste algoritmo é iterar pela string 'palavra' até encontrar um caractere que seja igual ao primeiro caractere da string 'fita'. Quando for encontrado estes caracteres iguais, irá entrar em um novo laço de repetição que agora itera pela string 'fita'. Neste laço será comparado os caracteres da 'palavra' e 'fita'. A cada teste positivo, serão testados os caracteres consecutivos dos testados anteriormente. Os testes serão feitos até acabar a string 'fita'. Caso um teste de negativo, o laço é fechado e continua-se a iterar pela string 'palavra'. Para aceitar a entrada, foi criada a variável 'aceita', que terá seu valor incrementado caso o valor de 'j' percorra todos os caracteres da fita. 
 ```
 for(i=0 ; i < tamanho ; i++)
     {
@@ -35,5 +33,14 @@ for(i=0 ; i < tamanho ; i++)
                 aceita++;
             }
         }
+    }
+```
+Caso 'aceita' tiver algum valor armazenado, a entrada é aceita, senão, a entrada é rejeitada.
+```
+if(aceita!=0)
+    {
+        printf("\nEntrada aceita => [%s] - contem a subpalavra '%s'", palavra, fita);
+    }else{
+        printf("\nEntrada rejeitada => [%s] - nao contem a subpalavra '%s'", palavra, fita);
     }
 ```
